@@ -36,9 +36,9 @@ for w in n: #iterates over n
 
             #Create a Neural Network classifier
             if a==0:
-               clf = Perceptron(eta0=w, random_state=b, max_iter=1000) #eta0 = learning rate, random_state = shuffle the training data
+               clf = Perceptron(eta0=w, shuffle=b, max_iter=1000) #eta0 = learning rate, random_state = shuffle the training data
             else:
-               clf = MLPClassifier(activation='logistic', learning_rate_init=w, hidden_layer_sizes=(25,), random_state=b, max_iter=1000) #learning_rate_init = learning rate, hidden_layer_sizes = number of neurons in the ith hidden layer, random_state = shuffle the training data
+               clf = MLPClassifier(activation='logistic', learning_rate_init=w, hidden_layer_sizes=(25,), shuffle =b, max_iter=1000) #learning_rate_init = learningrate, hidden_layer_sizes = number of neurons in the ith hidden layer, shuffle = shuffle the training data
 
             #Fit the Neural Network to the training data
             clf.fit(X_training, y_training)
@@ -62,11 +62,11 @@ for w in n: #iterates over n
             
             if a == 0 and perceptron_accuracy < accuracy:
                 perceptron_accuracy = accuracy
-                print('Highest Perceptron accuracy so far: {}, Parameters: Learning rate = {}, random_state = {}'.format(perceptron_accuracy, w, b))
+                print('Highest Perceptron accuracy so far: {}, Parameters: Learning rate = {}, shuffle = {}'.format(perceptron_accuracy, w, b))
 
             elif MLP_accuracy < accuracy:
                 MLP_accuracy = accuracy
-                print('Highest MLP accuracy so far: {} Parameters: Learning rate = {}, random_state = {}'.format(MLP_accuracy, w, b))
+                print('Highest MLP accuracy so far: {} Parameters: Learning rate = {}, shuffle = {}'.format(MLP_accuracy, w, b))
 
 
 
